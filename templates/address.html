@@ -1,0 +1,21 @@
+<address>
+    {%- if let Some(name) = address.name -%}
+        {{name}}<br>
+    {%- endif -%}
+    {{address.address_1}}
+    {%- if let Some(a2) = address.address_2 -%}
+        , {{a2}}<br>
+    {%- else -%}
+        <br>
+    {%- endif -%}
+    {{address.city}}
+    {%- if let Some(s) = address.state -%}
+        , {{s}} {{address.post_code}}<br>
+    {%- else -%}
+        <br>
+        {{address.post_code}}<br>
+    {%- endif -%}
+    {%- if address.country != "USA" && address.country != "United States" -%}
+        {{address.country}}
+    {%- endif -%}
+</address>

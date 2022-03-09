@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Postcards</title>
+        <style type="text/css" media="screen">
+            body {
+                margin: 0;
+            }
+            .postcard {
+                background: white;
+                width: {{width}}mm;
+                height: {{height}}mm;
+                margin: 0.25in;
+                position: relative;
+            }
+            .sender {
+                text-align: right;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            .recipient {
+                text-align: center;
+                /* It would be much easier if we could use flex here, but flex isn't supported by wkhtmltopdf */
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        </style>
+    </head>
+    <body>
+        {%for address in addresses %}
+            {% include "postcard.html" %}
+        {%- endfor %}
+    </body>
+</html>

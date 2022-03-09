@@ -1,0 +1,9 @@
+<div class="postcard">
+    <div class="recipient">
+        {% include "address.html" %}
+    </div>
+    <div class="sender">
+        {% let address = sender_address.clone() %}
+        {% include "address.html" %}
+    </div>
+</div>
